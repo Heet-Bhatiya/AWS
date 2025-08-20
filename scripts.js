@@ -1,79 +1,60 @@
-// Sample products data
-const products = [
-  {
-    id: 1,
-    name: "Product One",
-    price: 29.99,
-    img: "https://via.placeholder.com/250x250?text=Product+1",
-  },
-  {
-    id: 2,
-    name: "Product Two",
-    price: 39.99,
-    img: "https://via.placeholder.com/250x250?text=Product+2",
-  },
-  {
-    id: 3,
-    name: "Product Three",
-    price: 19.99,
-    img: "https://via.placeholder.com/250x250?text=Product+3",
-  },
-  {
-    id: 4,
-    name: "Product Four",
-    price: 49.99,
-    img: "https://via.placeholder.com/250x250?text=Product+4",
-  },
-];
-
-// Cart array to keep track of added items
-let cart = [];
-
-const productGrid = document.getElementById("product-grid");
-const cartCount = document.getElementById("cart-count");
-
-// Function to render products
-function renderProducts() {
-  products.forEach((product) => {
-    const productCard = document.createElement("div");
-    productCard.className = "product-card";
-
-    productCard.innerHTML = `
-      <img src="${product.img}" alt="${product.name}" />
-      <h4>${product.name}</h4>
-      <p class="price">$${product.price.toFixed(2)}</p>
-      <button data-id="${product.id}">Add to Cart</button>
-    `;
-
-    productGrid.appendChild(productCard);
-  });
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f0f0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
 }
 
-// Update cart count display
-function updateCartCount() {
-  cartCount.textContent = cart.length;
+h1 {
+  margin-bottom: 10px;
+  color: #333;
 }
 
-// Add event listeners to buttons
-function setupAddToCartButtons() {
-  productGrid.addEventListener("click", (event) => {
-    if (event.target.tagName === "BUTTON") {
-      const productId = Number(event.target.getAttribute("data-id"));
-      const product = products.find((p) => p.id === productId);
-      if (product) {
-        cart.push(product);
-        updateCartCount();
-        alert(`${product.name} added to cart!`);
-      }
-    }
-  });
+#game {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  margin-bottom: 20px;
 }
 
-// Initialize page
-function init() {
-  renderProducts();
-  setupAddToCartButtons();
-  updateCartCount();
+.cell {
+  background: white;
+  border: 2px solid #0077cc;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
 }
 
-document.addEventListener("DOMContentLoaded", init);
+.cell:hover {
+  background-color: #e0f0ff;
+}
+
+#status {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #0077cc;
+}
+
+button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
