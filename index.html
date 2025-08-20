@@ -17,7 +17,7 @@
           <li><a href="#">Shop</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
-          <li><a href="#" class="cart">Cart (0)</a></li>
+          <li><a href="#" class="cart">Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
       </nav>
     </div>
@@ -33,31 +33,8 @@
 
   <section class="products container">
     <h3>Featured Products</h3>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x250?text=Product+1" alt="Product 1" />
-        <h4>Product One</h4>
-        <p class="price">$29.99</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x250?text=Product+2" alt="Product 2" />
-        <h4>Product Two</h4>
-        <p class="price">$39.99</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x250?text=Product+3" alt="Product 3" />
-        <h4>Product Three</h4>
-        <p class="price">$19.99</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x250?text=Product+4" alt="Product 4" />
-        <h4>Product Four</h4>
-        <p class="price">$49.99</p>
-        <button>Add to Cart</button>
-      </div>
+    <div class="product-grid" id="product-grid">
+      <!-- Products will be dynamically mounted here -->
     </div>
   </section>
 
@@ -66,5 +43,7 @@
       <p>&copy; 2025 ShopEase. All rights reserved.</p>
     </div>
   </footer>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
